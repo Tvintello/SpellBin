@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://inlnga4dpxni"]
+
+[ext_resource type="Script" path="res://src/portal/scripts/portal.gd" id="1_sar8u"]
+
+[node name="Portal" type="Node3D"]
+script = ExtResource("1_sar8u")
+
+[node name="ColliderArea" type="Area3D" parent="."]
+collision_mask = 12
+
+[node name="Collider" type="CollisionShape3D" parent="ColliderArea"]
+unique_name_in_owner = true
+
+[node name="Viewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+size = Vector2i(1152, 648)
+
+[node name="PortalCamera" type="Camera3D" parent="Viewport"]
+unique_name_in_owner = true
+cull_mask = 1048543
+
+[node name="PortalMesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+layers = 32
+cast_shadow = 0
+
+[connection signal="body_entered" from="ColliderArea" to="." method="_on_collider_body_entered"]
+[connection signal="body_exited" from="ColliderArea" to="." method="_on_collider_body_exited"]

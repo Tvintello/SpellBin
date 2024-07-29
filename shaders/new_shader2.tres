@@ -1,0 +1,66 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://mn7vynqsylf2"]
+
+[ext_resource type="Texture2D" uid="uid://bmvhsf1ugbqsp" path="res://test_folder/Portal1.png" id="1_b8l3w"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hqaa6"]
+texture = ExtResource("1_b8l3w")
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_o513n"]
+default_input_values = [0, 3.57, 1, 1.19, 2, 0.6]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_h1jqf"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dn7yl"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_snl5q"]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Input:4
+	vec2 n_out4p0 = UV;
+
+
+// VectorCompose:3
+	float n_in3p0 = 3.57000;
+	float n_in3p1 = 1.19000;
+	vec2 n_out3p0 = vec2(n_in3p0, n_in3p1);
+
+
+// VectorOp:5
+	vec2 n_out5p0 = n_out4p0 * n_out3p0;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out5p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(420, 120)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_hqaa6")
+nodes/fragment/2/position = Vector2(40, 120)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorCompose_o513n")
+nodes/fragment/3/position = Vector2(-500, 280)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_h1jqf")
+nodes/fragment/4/position = Vector2(-500, 60)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_dn7yl")
+nodes/fragment/5/position = Vector2(-200, 200)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_snl5q")
+nodes/fragment/6/position = Vector2(-140, 20)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 3, 0, 5, 1, 5, 0, 2, 0, 2, 0, 0, 0)

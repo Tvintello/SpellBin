@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://csrekmr7jlfei"]
+
+[ext_resource type="Shader" path="res://shaders/terrain.gdshader" id="1_ngdpt"]
+[ext_resource type="Texture2D" uid="uid://bfwn7l26w36r8" path="res://src/environment/textures/grid2.jpg" id="2_v8fua"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ngdpt")
+shader_parameter/u_transition_mask = null
+shader_parameter/u_voxel_virtual_texture_tile_size = null
+shader_parameter/u_voxel_virtual_texture_fade = null
+shader_parameter/u_voxel_cell_size = null
+shader_parameter/u_voxel_block_size = null
+shader_parameter/u_voxel_virtual_texture_offset_scale = null
+shader_parameter/u_lod_fade = null
+shader_parameter/u_texture_top = ExtResource("2_v8fua")
+shader_parameter/u_texture_sides = ExtResource("2_v8fua")

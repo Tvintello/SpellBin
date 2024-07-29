@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://brt1e42djh2x2"]
+
+[ext_resource type="Script" path="res://src/drawings/magic_circle/scripts/invoker_spell_circle.gd" id="2_i58bl"]
+
+[node name="SpellCircle" type="MeshInstance3D"]
+script = ExtResource("2_i58bl")
+
+[node name="SpellCircleClone" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true

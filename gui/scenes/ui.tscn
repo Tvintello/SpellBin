@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3jowdaugc2mp"]
+
+[ext_resource type="Script" path="res://gui/scripts/ui.gd" id="1_ktpf5"]
+[ext_resource type="Script" path="res://gui/scripts/reticle.gd" id="2_cmpsp"]
+[ext_resource type="Texture2D" uid="uid://drqpgtusbx2m7" path="res://gui/textures/icons/mana_sign.svg" id="3_scv0k"]
+[ext_resource type="Texture2D" uid="uid://cmtdydybkv85" path="res://gui/textures/progress_under.png" id="4_fkqpj"]
+[ext_resource type="Texture2D" uid="uid://bahv3375pwen" path="res://gui/textures/progress_over.png" id="5_rk77d"]
+[ext_resource type="Texture2D" uid="uid://dwe8xy3q8uqvn" path="res://gui/textures/progress_mid.png" id="6_jcyfk"]
+[ext_resource type="Script" path="res://general_scripts/Debug.gd" id="7_ffdbc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnl7p"]
+bg_color = Color(0.309804, 0.309804, 0.309804, 0.556863)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.862745, 0.862745, 0.862745, 1)
+
+[sub_resource type="Theme" id="Theme_bot5o"]
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_pnl7p")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ktpf5")
+
+[node name="ReticleContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -33.0
+offset_right = 58.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reticle" type="Control" parent="ReticleContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("2_cmpsp")
+
+[node name="DebugPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 228.0
+offset_bottom = 304.0
+theme = SubResource("Theme_bot5o")
+script = ExtResource("7_ffdbc")
+
+[node name="MarginContainer" type="MarginContainer" parent="DebugPanel"]
+layout_mode = 2
+
+[node name="Output" type="VBoxContainer" parent="DebugPanel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.0
+offset_right = 57.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 15
+
+[node name="HelpContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="BarContainer" type="HBoxContainer" parent="Control/MarginContainer/HelpContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HelpContainer/BarContainer"]
+layout_mode = 2
+texture = ExtResource("3_scv0k")
+
+[node name="Bar" type="TextureProgressBar" parent="Control/MarginContainer/HelpContainer/BarContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+step = 0.1
+texture_under = ExtResource("4_fkqpj")
+texture_over = ExtResource("5_rk77d")
+texture_progress = ExtResource("6_jcyfk")

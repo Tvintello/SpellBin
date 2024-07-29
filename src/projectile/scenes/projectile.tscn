@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmpjs76bps7o1"]
+
+[ext_resource type="Script" path="res://src/projectile/scripts/projectile.gd" id="1_ohtfn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61c8l"]
+albedo_color = Color(0, 8.02745, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_afqwe"]
+material = SubResource("StandardMaterial3D_61c8l")
+
+[node name="Projectile" type="Node3D"]
+script = ExtResource("1_ohtfn")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, 1)
+collision_mask = 7
+debug_shape_custom_color = Color(3.55, 0, 0, 1)
+debug_shape_thickness = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_afqwe")

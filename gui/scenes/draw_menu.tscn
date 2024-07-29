@@ -1,0 +1,187 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnvdr13j0xhxm"]
+
+[ext_resource type="Script" path="res://gui/scripts/draw_menu.gd" id="1_75rw0"]
+[ext_resource type="Theme" uid="uid://cw605ue2ifeel" path="res://gui/resourses/book_theme.tres" id="1_l1dt2"]
+[ext_resource type="FontFile" uid="uid://bumlomwhqxkld" path="res://assets/fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf" id="2_s870l"]
+[ext_resource type="Script" path="res://gui/scripts/button_processor.gd" id="4_nidts"]
+[ext_resource type="StyleBox" uid="uid://cp4hxykfw8ws" path="res://gui/resourses/blackout_borders.tres" id="4_ripka"]
+[ext_resource type="Texture2D" uid="uid://go86tn6hgqi1" path="res://gui/textures/icons/conduit.svg" id="6_0xbi1"]
+[ext_resource type="Texture2D" uid="uid://bt6qk021f70wg" path="res://gui/textures/icons/collector.svg" id="7_osi0g"]
+[ext_resource type="StyleBox" uid="uid://ljbn6ih65tcg" path="res://gui/resourses/popup_accent_theme.tres" id="8_1m44q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvn87"]
+bg_color = Color(0.847474, 0.847474, 0.847474, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.248399, 0.248401, 0.2484, 1)
+shadow_color = Color(0, 0, 0, 0.772549)
+shadow_size = 10
+
+[node name="DrawMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_l1dt2")
+script = ExtResource("1_75rw0")
+
+[node name="Blackout" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/Blackout"]
+layout_mode = 0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+theme_override_styles/panel = ExtResource("4_ripka")
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme = ExtResource("1_l1dt2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_l1dt2")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ButtonProcessor" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("4_nidts")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_s870l")
+theme_override_font_sizes/font_size = 20
+text = "Drawings"
+horizontal_alignment = 1
+
+[node name="ManaConduitBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_l1dt2")
+text = "Mana conduit"
+icon = ExtResource("6_0xbi1")
+alignment = 0
+icon_alignment = 2
+
+[node name="ManaCollectorBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Mana collector"
+icon = ExtResource("7_osi0g")
+alignment = 0
+icon_alignment = 2
+
+[node name="SpellCircle" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Spell circle"
+alignment = 0
+
+[node name="SpellCircleMenu" type="PopupPanel" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor/SpellCircle"]
+position = Vector2i(267, 230)
+size = Vector2i(200, 179)
+theme_override_styles/panel = SubResource("StyleBoxFlat_yvn87")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor/SpellCircle/SpellCircleMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 198.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="LineEdit" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor/SpellCircle/SpellCircleMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("8_1m44q")
+theme_override_styles/focus = ExtResource("8_1m44q")
+theme_override_styles/read_only = ExtResource("8_1m44q")
+placeholder_text = "Name"
+
+[node name="Description" type="TextEdit" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor/SpellCircle/SpellCircleMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 105.625)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_background_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("8_1m44q")
+theme_override_styles/focus = ExtResource("8_1m44q")
+theme_override_styles/read_only = ExtResource("8_1m44q")
+placeholder_text = "Description"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor/SpellCircle/SpellCircleMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Accept" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor/SpellCircle/SpellCircleMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Accept"
+
+[node name="Cancel" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ButtonProcessor/SpellCircle/SpellCircleMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cancel
+"
+
+[node name="ScrollCircleList" type="ScrollContainer" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="CircleList" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ScrollCircleList"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/HBoxContainer/ScrollCircleList/CircleList"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_s870l")
+theme_override_font_sizes/font_size = 20
+text = "Saved spell circles"
+horizontal_alignment = 1

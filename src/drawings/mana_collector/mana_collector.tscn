@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bdham3cle2jen"]
+
+[node name="ManaCollector" type="MeshInstance3D"]
+
+[node name="CollectorStaticBody" type="StaticBody3D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape3D" parent="CollectorStaticBody"]

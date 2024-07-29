@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1l6lnhp4x0qf"]
+
+[ext_resource type="Script" path="res://src/circle_editor/new edition/scripts/circle_editor.gd" id="1_eky2v"]
+[ext_resource type="Theme" uid="uid://cw605ue2ifeel" path="res://gui/resourses/book_theme.tres" id="2_721mh"]
+[ext_resource type="Script" path="res://src/circle_editor/new edition/scripts/text_edit.gd" id="2_g2g3k"]
+
+[node name="CircleEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_eky2v")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.5
+offset_top = -268.0
+offset_right = 354.5
+offset_bottom = 268.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_g2g3k")
+
+[node name="ToggleEditor" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.5
+offset_right = 68.5
+offset_bottom = 29.0
+grow_horizontal = 2
+theme = ExtResource("2_721mh")
+theme_override_font_sizes/font_size = 21
+text = "Toggle editor"
+
+[node name="SaveBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -56.0
+offset_right = -30.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Save"
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+unique_name_in_owner = true
+size = Vector2i(227, 194)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 223.0
+offset_bottom = 190.0
+
+[node name="SpellName" type="LineEdit" parent="PopupPanel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Spell name"
+
+[node name="Description" type="TextEdit" parent="PopupPanel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 116.28)
+layout_mode = 2
+placeholder_text = "Description"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="AcceptButton" type="Button" parent="PopupPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(109.365, 0)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Accept"
+
+[node name="CancelButton" type="Button" parent="PopupPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(105.15, 0)
+layout_mode = 2
+text = "Cancel"
+
+[connection signal="button_down" from="ToggleEditor" to="." method="_on_open_editor_button_down"]
+[connection signal="button_up" from="SaveBtn" to="." method="_on_save_btn_button_up"]
+[connection signal="button_up" from="PopupPanel/VBoxContainer/HBoxContainer/AcceptButton" to="." method="_on_accept_button_button_up"]
+[connection signal="button_up" from="PopupPanel/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_button_up"]

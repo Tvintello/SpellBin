@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c430pe7l8yt4c"]
+
+[ext_resource type="Script" path="res://src/drawings/magic_circle/scripts/circle_drawer.gd" id="1_cufxl"]
+[ext_resource type="Script" path="res://src/drawings/magic_circle/scripts/circle_drawer_manager.gd" id="1_ikumx"]
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+visibility_layer = 0
+offset_right = 140.0
+offset_bottom = 128.0
+script = ExtResource("1_ikumx")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Canvas" type="Node2D" parent="SubViewport"]
+script = ExtResource("1_cufxl")

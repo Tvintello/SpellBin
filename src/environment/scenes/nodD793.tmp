@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=3 uid="uid://clw3gbbnik8hy"]
+
+[ext_resource type="PackedScene" uid="uid://b7gnrjbip2n1l" path="res://scene_objects/actors/player/scenes/player.tscn" id="1_21mc6"]
+[ext_resource type="Material" uid="uid://0khygi7xot6c" path="res://scene_objects/environment/materials/grid.tres" id="2_w4xj6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0t5h7"]
+sky_top_color = Color(0.709804, 0.45098, 0.270588, 1)
+sky_horizon_color = Color(0.727451, 0.654995, 0.600897, 1)
+ground_horizon_color = Color(0.727451, 0.654995, 0.600897, 1)
+
+[sub_resource type="Sky" id="Sky_m1464"]
+sky_material = SubResource("ProceduralSkyMaterial_0t5h7")
+
+[sub_resource type="Environment" id="Environment_pwpmi"]
+background_mode = 2
+sky = SubResource("Sky_m1464")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_sl6g8"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xf2ip"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_krqcc"]
+size = Vector3(1.99316, 0.0679932, 1.9823)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0md2h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6jun"]
+
+[node name="Node" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.217616, 0.450159, 0, 0.900319, 0.435231, -0.5, 0.376921, -0.779699, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pwpmi")
+camera_attributes = SubResource("CameraAttributesPractical_sl6g8")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(28.4856, 0, 0, 0, 1, 0, 0, 0, 25.8959, 0, 0, 0)
+material_override = ExtResource("2_w4xj6")
+mesh = SubResource("PlaneMesh_xf2ip")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00146484, -0.028897, 0.0120239)
+shape = SubResource("BoxShape3D_krqcc")
+
+[node name="CrouchPlatform" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.37736, 0, 0, 0, 0.280827, 0, 0, 0, 3.38384, 6.04062, 1.70671, 0)
+mesh = SubResource("BoxMesh_0md2h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CrouchPlatform"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrouchPlatform/StaticBody3D"]
+shape = SubResource("BoxShape3D_e6jun")
+
+[node name="CrouchPlatform3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.37736, 0, 0, 0, 0.280827, 0, 0, 0, 3.38384, 6.04062, 2.38924, -5.00025)
+mesh = SubResource("BoxMesh_0md2h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CrouchPlatform3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrouchPlatform3/StaticBody3D"]
+shape = SubResource("BoxShape3D_e6jun")
+
+[node name="CrouchPlatform4" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.37736, 0, 0, 0, 0.280827, 0, 0, 0, 3.38384, 6.04062, 3.30303, -9.4421)
+mesh = SubResource("BoxMesh_0md2h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CrouchPlatform4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrouchPlatform4/StaticBody3D"]
+shape = SubResource("BoxShape3D_e6jun")
+
+[node name="CrouchPlatform5" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.37736, 0, 0, 0, 0.280827, 0, 0, 0, 3.38384, 7.19649, 3.85808, -13.4039)
+mesh = SubResource("BoxMesh_0md2h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CrouchPlatform5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrouchPlatform5/StaticBody3D"]
+shape = SubResource("BoxShape3D_e6jun")
+
+[node name="CrouchPlatform2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.37736, 0, 0, 0, 0.280827, 0, 0, 0, 3.38384, 6.0374, 0.983038, 5.35573)
+mesh = SubResource("BoxMesh_0md2h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CrouchPlatform2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrouchPlatform2/StaticBody3D"]
+shape = SubResource("BoxShape3D_e6jun")
+
+[node name="Player" parent="." instance=ExtResource("1_21mc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24919, 0)
+CAMERA_CONTROLLER = Object(Camera3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 2.91038e-11, 0, -2.91038e-11, 1, 0, 0.805767, -0.160007),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"keep_aspect":1,"cull_mask":1048573,"environment":null,"attributes":null,"h_offset":0.0,"v_offset":0.0,"doppler_tracking":0,"projection":0,"current":false,"fov":75.0,"size":1.0,"frustum_offset":Vector2(0, 0),"near":0.05,"far":4000.0,"script":null)
+
+ANIMATIONPLAYER = Object(AnimationPlayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"libraries":{
+"": null
+},"autoplay":"","playback_default_blend_time":0.0,"speed_scale":1.0,"movie_quit_on_finish":false,"blend_times":[],"script":null)
+
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.13617, 0.754018)

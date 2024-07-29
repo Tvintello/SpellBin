@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh8syh5a2bqf0"]
+
+[ext_resource type="Script" path="res://src/circle_editor/old edition/scripts/editor_node.gd" id="1_gl5sa"]
+
+[node name="EditorNode" type="Panel"]
+offset_right = 102.41
+offset_bottom = 103.74
+script = ExtResource("1_gl5sa")
+
+[node name="Body" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caption" type="Label" parent="Body"]
+layout_mode = 2
+
+[node name="ParameterList" type="VBoxContainer" parent="Body"]
+layout_mode = 2
+
+[node name="Parameter" type="HBoxContainer" parent="Body/ParameterList"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Body/ParameterList/Parameter"]
+layout_mode = 2
+
+[node name="Connection" type="TextureRect" parent="Body/ParameterList/Parameter"]
+layout_mode = 2

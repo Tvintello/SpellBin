@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://be52koxe7hshg"]
+
+[ext_resource type="Script" path="res://src/circle_editor/old edition/scripts/mouse_menu.gd" id="1_1te7a"]
+[ext_resource type="Script" path="res://src/circle_editor/old edition/scenes/spell_editor.gd" id="1_c5wdi"]
+
+[node name="SpellEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c5wdi")
+
+[node name="GraphEditor" type="GraphEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_offset = Vector2(-40, -40)
+
+[node name="MouseMenu" type="PopupMenu" parent="GraphEditor" node_paths=PackedStringArray("editor")]
+unique_name_in_owner = true
+item_count = 1
+item_0/text = "add node"
+item_0/id = 0
+script = ExtResource("1_1te7a")
+editor = NodePath("..")

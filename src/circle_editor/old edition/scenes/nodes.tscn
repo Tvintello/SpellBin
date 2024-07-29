@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch72hf3i4l484"]
+
+[ext_resource type="PackedScene" uid="uid://cxqdlq6c5jqo6" path="res://src/circle_editor/old edition/graph_nodes/node.tscn" id="1_bf2ir"]
+
+[node name="Nodes" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Node" parent="." instance=ExtResource("1_bf2ir")]
+layout_mode = 2

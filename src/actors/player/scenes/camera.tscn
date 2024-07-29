@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6b87faptb61u"]
+
+[ext_resource type="Script" path="res://src/Marker3D.gd" id="1_4b3gs"]
+
+[node name="Marker3D" type="Marker3D"]
+script = ExtResource("1_4b3gs")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.0197209, 0, -0.999806, 0, 1, 0, 0.999806, 0, 0.0197209, -0.028535, 0.0850413, 0.00913471)
+fov = 73.483
+size = 0.986517

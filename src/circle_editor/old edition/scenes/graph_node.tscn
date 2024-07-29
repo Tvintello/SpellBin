@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b8te0o3kprlno"]
+
+[node name="GraphNode" type="GraphNode"]
+offset_right = 161.0
+offset_bottom = 249.0

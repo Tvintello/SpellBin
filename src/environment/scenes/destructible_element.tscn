@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgxf24l7g2n8m"]
+
+[ext_resource type="Script" path="res://src/environment/scripts/destructibleElement.gd" id="1_bdp28"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gwo5o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_faw83"]
+
+[node name="DestructibleElement" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_gwo5o")
+script = ExtResource("1_bdp28")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="ElementCollider" type="CollisionShape3D" parent="StaticBody3D"]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_faw83")

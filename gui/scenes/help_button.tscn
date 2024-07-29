@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnqekopsb5dom"]
+
+[ext_resource type="Texture2D" uid="uid://b7ipexkc51lii" path="res://gui/textures/icons/key_button.svg" id="1_uwipx"]
+[ext_resource type="Script" path="res://gui/scripts/help_button_key.gd" id="2_gpuxc"]
+[ext_resource type="Theme" uid="uid://cw605ue2ifeel" path="res://gui/resourses/book_theme.tres" id="2_w8dap"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5c841"]
+content_margin_left = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_paa8k"]
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="HelpButton" type="HBoxContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_uwipx")
+expand_mode = 3
+
+[node name="Key" type="Node2D" parent="TextureRect"]
+unique_name_in_owner = true
+position = Vector2(7, 18)
+script = ExtResource("2_gpuxc")
+font_size = 18
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_w8dap")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5c841")
+text = "action"
+label_settings = SubResource("LabelSettings_paa8k")

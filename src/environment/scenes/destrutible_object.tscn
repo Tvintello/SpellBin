@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ib7icmk45vpa"]
+
+[ext_resource type="Script" path="res://src/environment/scripts/DestrutibleObject.gd" id="1_kah0j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cije0"]
+albedo_color = Color(0.941176, 0, 0.172549, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ott7"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_cije0")
+subdivide_width = 20
+subdivide_height = 20
+subdivide_depth = 20
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcba7"]
+
+[node name="DestrutibleObject" type="Node3D"]
+script = ExtResource("1_kah0j")
+
+[node name="DestrutibleObjectMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4ott7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DestrutibleObjectMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DestrutibleObjectMesh/StaticBody3D"]
+shape = SubResource("BoxShape3D_fcba7")

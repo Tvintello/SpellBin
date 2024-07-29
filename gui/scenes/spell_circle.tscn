@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://da4j7gi3xdic0"]
+
+[ext_resource type="Script" path="res://gui/scripts/spell_circle_btn.gd" id="1_nxy1r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8swfl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="SpellCircle" type="HBoxContainer"]
+theme_override_constants/separation = 10
+script = ExtResource("1_nxy1r")
+
+[node name="CirclePreviewContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8swfl")
+
+[node name="CirclePreview" type="TextureRect" parent="CirclePreviewContainer"]
+unique_name_in_owner = true
+self_modulate = Color(0.176471, 0.176471, 0.176471, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 2
+
+[node name="Information" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Information"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Name"
+
+[node name="Description" type="Label" parent="Information"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Description
+"
+autowrap_mode = 3
+clip_text = true

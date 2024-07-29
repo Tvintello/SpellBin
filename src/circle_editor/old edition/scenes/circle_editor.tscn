@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxtxgopjt7gbr"]
+
+[ext_resource type="Script" path="res://src/circle_editor/old edition/scripts/circle_editor.gd" id="1_1qko0"]
+[ext_resource type="Script" path="res://src/circle_editor/old edition/scripts/mouse_menu.gd" id="2_evbyf"]
+
+[node name="Editor" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="MouseMenu" type="PopupMenu" parent="." node_paths=PackedStringArray("editor")]
+unique_name_in_owner = true
+size = Vector2i(101, 100)
+item_count = 1
+item_0/text = "add node"
+item_0/id = 0
+script = ExtResource("2_evbyf")
+editor = NodePath("../GraphEdit")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+offset_right = 1158.0
+offset_bottom = 646.0
+script = ExtResource("1_1qko0")
+
+[node name="GraphNode" type="GraphNode" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 197.0
+offset_right = 401.0
+offset_bottom = 399.0
+mouse_filter = 1
+position_offset = Vector2(199, 197)
+title = "dfgsdfgasdfasdfas"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+
+[node name="Control" type="Control" parent="GraphEdit/GraphNode"]
+layout_mode = 2
+
+[connection signal="id_pressed" from="MouseMenu" to="MouseMenu" method="_on_id_pressed"]

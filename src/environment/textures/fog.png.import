@@ -1,0 +1,26 @@
+[remap]
+
+importer="3d_texture"
+type="CompressedTexture3D"
+uid="uid://doo1g33xnfb1d"
+path="res://.godot/imported/fog.png-a03b2492e7623ec6f0298b7575241db9.ctex3d"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://src/environment/textures/fog.png"
+dest_files=["res://.godot/imported/fog.png-a03b2492e7623ec6f0298b7575241db9.ctex3d"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=8
+slices/vertical=8

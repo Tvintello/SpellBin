@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cw605ue2ifeel"]
+
+[ext_resource type="FontFile" uid="uid://bumlomwhqxkld" path="res://assets/fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf" id="1_pyj4y"]
+[ext_resource type="StyleBox" uid="uid://b0yo8qhtrnksw" path="res://gui/resourses/link.tres" id="2_52gne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iflcx"]
+bg_color = Color(1, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpdxn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afqa8"]
+bg_color = Color(0.823529, 0.823529, 0.823529, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x75lp"]
+bg_color = Color(0.886275, 0.886275, 0.886275, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+default_font = ExtResource("1_pyj4y")
+default_font_size = 16
+BlackoutBorders/base_type = &"MarginContainer"
+BlackoutBorders/styles/background = SubResource("StyleBoxFlat_iflcx")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_pyj4y")
+Button/styles/disabled = SubResource("StyleBoxFlat_mpdxn")
+Button/styles/focus = SubResource("StyleBoxFlat_mpdxn")
+Button/styles/hover = ExtResource("2_52gne")
+Button/styles/normal = SubResource("StyleBoxFlat_mpdxn")
+Button/styles/pressed = SubResource("StyleBoxFlat_mpdxn")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Panel/styles/panel = SubResource("StyleBoxFlat_afqa8")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_x75lp")
